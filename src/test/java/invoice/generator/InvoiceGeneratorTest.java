@@ -1,6 +1,7 @@
 package invoice.generator;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class InvoiceGeneratorTest {
@@ -30,4 +31,13 @@ public class InvoiceGeneratorTest {
 		Assert.assertEquals(30, totalFare, 0.0);
 
 	}
+	
+	
+
+    InvoiceGenerator invoiceGenerator = null;
+
+    @Before
+    public void setUp(){
+        invoiceGenerator = new InvoiceGenerator();
+    }
 }

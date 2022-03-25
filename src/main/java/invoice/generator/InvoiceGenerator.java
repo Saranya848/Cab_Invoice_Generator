@@ -1,20 +1,11 @@
 package invoice.generator;
-class Ride {
-    public final double distance;
-    public final double time;
 
-    public Ride(double distance, double time) {
-        this.distance = distance;
-        this.time = time;
-    }
-}
+
+
 public class InvoiceGenerator {
 	/**
-	 * costperkm - cost per Kilometer
-	 * costpermin - cost per Minute
-	 * minimumfare - Minimum Fare
-	 * Procedure :
-	 * 1. Calculating total Fare
+	 * costperkm - cost per Kilometer costpermin - cost per Minute minimumfare -
+	 * Minimum Fare Procedure : 1. Calculating total Fare
 	 * 
 	 */
 	private static final double costPerKM = 10;
@@ -34,13 +25,18 @@ public class InvoiceGenerator {
 		fare = Math.max(minimumFare, fare);
 		return fare;
 	}
-	
 
-    public double calculateTotalFare(Ride[] rides) {
-        double fare=0.0;
-        for(Ride ride: rides){
-            fare += this.calculateTotalFare(ride.distance,ride.time);
-        }
-        return fare;
-    }
+	/**
+	 * 2. Calculating for multiple rides
+	 * 
+	 * @param rides - ride of the vechile
+	 * @return fare for total rides
+	 */
+	public double calculateTotalFare(Ride[] rides) {
+		double fare = 0.0;
+		for (Ride ride : rides) {
+			fare += this.calculateTotalFare(ride.distance, ride.time);
+		}
+		return fare;
+	}
 }
