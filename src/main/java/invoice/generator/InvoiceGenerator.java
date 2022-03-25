@@ -15,7 +15,7 @@ public class InvoiceGenerator {
 	 * minimumfare - Minimum Fare
 	 * Procedure :
 	 * 1. Calculating total Fare
-	 * 
+	 * 2. Calculating for Multiple rides
 	 */
 	private static final double costPerKM = 10;
 	private static final double costPerMin = 1;
@@ -35,7 +35,12 @@ public class InvoiceGenerator {
 		return fare;
 	}
 	
-
+	/**
+	 * 2. Calculating for multiple rides
+	 * 
+	 * @param rides - ride of the vechile
+	 * @return fare for total rides
+	 */
     public double calculateTotalFare(Ride[] rides) {
         double fare=0.0;
         for(Ride ride: rides){
