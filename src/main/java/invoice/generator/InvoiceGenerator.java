@@ -1,5 +1,13 @@
 package invoice.generator;
+class Ride {
+    public final double distance;
+    public final double time;
 
+    public Ride(double distance, double time) {
+        this.distance = distance;
+        this.time = time;
+    }
+}
 public class InvoiceGenerator {
 	/**
 	 * costperkm - cost per Kilometer
@@ -26,4 +34,13 @@ public class InvoiceGenerator {
 		fare = Math.max(minimumFare, fare);
 		return fare;
 	}
+	
+
+    public double calculateTotalFare(Ride[] rides) {
+        double fare=0.0;
+        for(Ride ride: rides){
+            fare += this.calculateTotalFare(ride.distance,ride.time);
+        }
+        return fare;
+    }
 }
